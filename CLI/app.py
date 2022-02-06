@@ -1,7 +1,6 @@
 import os
 import sys
 import cv2
-from cv2 import INTER_AREA
 import matplotlib.pyplot as plt
 
 
@@ -49,14 +48,14 @@ def run():
 
     if isinstance(width, int) and height is None:
         h, _, _ = image.shape
-        image = cv2.resize(src=image, dsize=(width, h), interpolation=cv2.INTER_AREA)
+        image = cv2.resize(src=image, dsize=(width, h), interpolation=cv2.INTER_LINEAR)
 
     if width is None and isinstance(height, int):
         _, w, _ = image.shape
-        image = cv2.resize(src=image, dsize=(w, height), interpolation=cv2.INTER_AREA)
+        image = cv2.resize(src=image, dsize=(w, height), interpolation=cv2.INTER_LINEAR)
 
     if isinstance(width, int) and isinstance(height, int):
-        image = cv2.resize(src=image, dsize=(width, height), interpolation=cv2.INTER_AREA)
+        image = cv2.resize(src=image, dsize=(width, height), interpolation=cv2.INTER_LINEAR)
 
     if save:
         cv2.imwrite(os.path.join(SAVE_PATH, filename.split(".")[0] + " - Resized.jpg"), image)
