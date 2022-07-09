@@ -1,6 +1,6 @@
 __pycache__
-Files
-Processed
 venv
 *.jpg
 *.png
+output
+!Test_1.jpg
